@@ -44,12 +44,12 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0.75rem;
   --background: rgb(2, 2, 2);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
+  --foreground: rgba(255, 7, 7, 0.06);
+  --card: rgba(255, 7, 7, 0.06);
   --text-color: rgba(181,182,183,1);
-  --card-foreground: oklch(0.145 0 0);
+  --card-foreground: rgba(255, 7, 7, 0.06);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
   --primary: rgb(255, 0, 0);
