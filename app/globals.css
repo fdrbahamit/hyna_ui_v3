@@ -44,8 +44,9 @@
 }
 
 :root {
-  --radius: 0.75rem;
-  --background: rgb(2, 2, 2);
+  --radius: 5px;
+  --background: #1A0000;
+  /* --background: rgba(250, 248, 248, 0.308); */
   --foreground: rgba(255, 7, 7, 0.06);
   --card: rgba(255, 7, 7, 0.06);
   --text-color: rgba(181,182,183,1);
@@ -55,14 +56,14 @@
   --primary: rgb(255, 0, 0);
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
+  --secondary-foreground: #1A0000;
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border: rgba(255,255,255,0.13);
-  --input: oklch(11.492% 0.00001 271.152);
+  --input: rgb(2, 2, 2);
   --ring: oklch(0.708 0 0);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
