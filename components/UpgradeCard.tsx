@@ -4,8 +4,8 @@ import { Check, ShoppingCart, X } from "lucide-react";
 
 export const UpgradeCard = ({ plan }: UpgradeCardProps) => {
     return (
-        <div className="bg-card-foreground border border-[var(--border)] rounded-[var(--radius)] flex flex-col gap-8 p-4 md:p-8">
-            <h3 className="text-white flex justify-between items-center font-bold text-3xl">
+        <div className="bg-card border border-[var(--border)] rounded-[var(--radius)] flex flex-col gap-8 p-4 md:p-8">
+            <h3 className="text-white font-bold text-3xl">
                 {plan.name}
             </h3>
             <div>
@@ -18,7 +18,7 @@ export const UpgradeCard = ({ plan }: UpgradeCardProps) => {
                     ))}
                 </ul>
                 <div className="flex flex-col gap-3 mt-8">
-                    <span className="p-4 rounded-[var(--radius)] text-white max-w-full w-max text-[14px] md:text-[16px] bg-[var(--secondary-foreground)]">
+                    <span className="p-4 rounded-[var(--radius)] text-white max-w-full w-max text-[14px] md:text-[16px] bg-background">
                         {plan.performance}
                     </span>
                 </div>

@@ -69,8 +69,8 @@ const upgradePlans = [
 const Page = () => {
     return (
         <div className="w-full mx-auto p-6">
-            <div className="mb-8">
-                <h1 className="text-3xl font-bold tracking-tight text-white mb-2">
+            <div className="mb-6">
+                <h1 className="text-4xl font-extrabold tracking-tight text-white">
                     <span className="inline-block me-1">
                         <ShoppingCart size={32} color="#ff0000" strokeWidth={2} />
                     </span>

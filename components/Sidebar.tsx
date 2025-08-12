@@ -1,7 +1,7 @@
 'use client';
 import { Home, LucideIcon, MessageCircle, Rocket, ShoppingCart, User } from "lucide-react";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 export interface Menu {
     path: string;
@@ -41,13 +41,13 @@ export default function Sidebar() {
     ]
 
     return (
-        <aside className="fixed w-max flex md:flex-col justify-between md:justify-start gap-4 sm:gap-8 left-1/2 md:left-2 top-[8px] md:top-1/2 -translate-x-1/2 md:translate-x-0 md:-translate-y-1/2 right-0 md:right-auto bg-[var(--foreground)] border border-[var(--border)] rounded-[var(--radius)] px-4 py-3 md:py-8 z-[50]">
+        <aside className="fixed w-max flex md:flex-col justify-between md:justify-start gap-4 sm:gap-8 left-1/2 md:left-2 top-[8px] md:top-1/2 -translate-x-1/2 md:translate-x-0 md:-translate-y-1/2 right-0 md:right-auto bg-sidebar border border-[var(--border)] rounded-[var(--radius)] px-4 py-3 md:py-8 z-[50]">
             {menuList.map((menu: Menu, key: number) => {
                 const Icon = menu.icon;
                 const isActive = pathname === menu.path;
                 return (
                     <Link href={menu.path} key={key} className={`group rounded-full p-[8px] md:p-[18px] cursor-pointer hover:bg-primary ${
-                        isActive ? "bg-primary" : "hover:bg-primary"
+                        isActive ? "bg-sidebar-primary" : "hover:bg-sidebar-primary"
                     }`}>
                     <Icon
                         size={256}

@@ -6,8 +6,8 @@ export default function Home() {
             <div className="w-full absolute top-1/12 h-full max-w-[1886]">
                 <Image
                     aria-hidden
-                    src="/lunabg.png"
-                    alt="lunabg icon"
+                    src="/images/lunabg.png"
+                    alt="lunabg brand"
                     width={1886}
                     height={100}
                     sizes="(max-width: 1439px) 100vw, 1886px"

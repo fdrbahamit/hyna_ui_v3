@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css" rel="stylesheet"> -->
+    <style>
+        :root {
+            --bg-primary: rgb(0, 0, 0);
+            --bg-muted-foreground: rgba(252, 252, 252, 0.08);
+            --text-primary: rgba(255, 255, 255, 0.95);
+            --text-muted: rgba(115, 115, 115, 1);
+            --card-bg: rgba(252, 252, 252, 0.08);
+            --border-color: rgba(255, 255, 255, 0.13);
+            --input-bg: rgba(255, 255, 255, 0.13);
+            --primary-red: rgb(255, 0, 0);
+            --primary-red-hover: rgba(255, 0, 0, 0.52);
+        }
+
+        p{
+            padding: 0;
+            margin: 0;
+        }
+
+        input:focus-visible {
+            outline: none;
+        }
+
+        /* Chỉ giữ những CSS không thể thay bằng Bootstrap */
+        .color-bg {
+            background-color: var(--bg-primary);
+        }
+
+        .color-muted-foreground-bg {
+            background-color: var(--bg-muted-foreground);
+        }
+
+        .border-radius {
+            border-radius: 5px;
+        }
+
+        .custom-text {
+            color: var(--text-primary);
+        }
+
+        .custom-text-muted {
+            color: var(--text-muted);
+        }
+
+        .color-primary {
+            color: var(--primary-red);
+        }
+
+        .color-primary:hover {
+            color: var(--primary-red-hover);
+        }
+
+        .separator {
+            height: 1px;
+            background-color: var(--border-color);
+        }
+
+        .form-label {
+            color: rgb(209 213 220);
+        }
+
+        .btn-custom {
+            background-color: var(--primary-red);
+            transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        }
+
+        .btn-custom:hover {
+            background-color: var(--primary-red-hover);
+        }
+
+        .logo-translate {
+            transform: translateX(-20%);
+        }
+
+        .form-input {
+            display: block;
+            width: 100%;
+            padding: .374rem .75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: white;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-clip: padding-box;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+        }
+
+        .gradient-overlay {
+            mask-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 255, 255));
+        }
+
+        .gradient-top {
+            background: conic-gradient(from 180deg at 99% 40% in lab, rgb(255, 255, 255) 18deg, rgb(156, 184, 221) 36deg, rgba(17, 17, 17, 0) 90deg, rgba(17, 17, 17, 0) 342deg, rgb(255, 255, 255) 360deg);
+        }
+
+        .gradient-bottom {
+            background: conic-gradient(from 0deg at 99% 60%, rgb(255, 255, 255) 0deg, rgba(17, 17, 17, 0) 18deg, rgba(17, 17, 17, 0) 270deg, rgb(156, 184, 221) 324deg, rgb(255, 255, 255) 342deg);
+        }
+    </style>
+</head>
+<body class="color-bg overflow-hidden">
+    <div class="container-fluid vh-100 color-bg">
+        <div class="row h-100">
+            <!-- Left Side - Login Form -->
+            <div class="col-12 col-md-6">
+                <div class="d-flex justify-content-center align-items-center vh-100 p-4">
+                    <div class="w-100 position-relative" style="max-width: 400px; z-index: 10;">
+                        <div class="text-center mb-4">
+                            <h1 class="display-4 fw-bold text-white mb-0">Sign In</h1>
+                            <p class="custom-text-muted">
+                                Don't have an account? 
+                                <a href="/register.html" class="color-primary text-decoration-none">Register Here</a>
+                            </p>
+                        </div>
+                        
+                        <div class="separator"></div>
+                        
+                        <!-- Login Form -->
+                        <form id="loginForm" class="mt-4">
+                            <div class="mb-3">
+                                <label for="username" class="form-label fw-medium d-flex align-items-center gap-1 mb-2">
+                                    <i data-lucide="user" width="20" height="20"></i>
+                                    Username
+                                </label>
+                                <input 
+                                    type="text" 
+                                    class="form-input color-muted-foreground-bg" 
+                                    id="username" 
+                                    placeholder="Username" 
+                                    required
+                                >
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="password" class="form-label fw-medium d-flex align-items-center gap-1 mb-2">
+                                    <i data-lucide="lock" width="20" height="20"></i>
+                                    Password
+                                </label>
+                                <input 
+                                    type="password" 
+                                    class="form-input color-muted-foreground-bg" 
+                                    id="password" 
+                                    placeholder="Password" 
+                                    required
+                                >
+                            </div>
+                            
+                            <!-- Sign In Button -->
+                            <button type="submit" class="btn-custom text-white w-100 p-2 fs-5 d-flex align-items-center justify-content-center gap-2 rounded border-0">
+                                <i data-lucide="log-in" width="30" height="30"></i>
+                                Sign In
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Side - Background with Abstract Design -->
+            <div class="col-md-6 d-none d-md-block">
+                <div class="position-relative d-flex align-items-center justify-content-center vh-100 color-bg overflow-hidden">
+                    <div class="position-absolute top-0 start-0 end-0 bottom-0 d-flex align-items-center justify-content-start opacity-50">
+                        <img 
+                            src="/images/logo.png" 
+                            alt="lunabg brand" 
+                            class="h-100 logo-translate"
+                            style="max-height: 600px; width: auto;"
+                            onerror="this.style.display='none'"
+                        >
+                    </div>
+                    
+                    <div class="gradient-overlay position-absolute opacity-75 w-100 h-100 d-flex flex-column" style="top: -30%; right: -6rem; bottom: -30%;">
+                        <div class="gradient-top flex-fill"></div>
+                        <div class="gradient-bottom flex-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Handle form submission
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username && password) {
+                // Add your login logic here
+                console.log('Login attempt:', { username, password });
+                alert('Login functionality would be implemented here');
+            }
+        });
+
+        // Add input validation styling
+        const inputs = document.querySelectorAll('.form-control');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.value.trim() === '') {
+                    this.style.borderColor = 'var(--primary-red)';
+                } else {
+                    this.style.borderColor = 'var(--border-color)';
+                }
+            });
+        });
+        
+    </script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <!-- <script src="https://unpkg.com/lucide@latest"></script> -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
