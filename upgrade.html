@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upgrade</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: rgb(0, 0, 0);
+            --border-radius: 5px;
+            --text-color: rgba(181,182,183,1);
+            --bg-muted-foreground: rgba(252, 252, 252, 0.08);
+            --text-primary: rgba(255, 255, 255, 0.95);
+            --text-muted: rgba(115, 115, 115, 1);
+            --card-bg: rgba(252, 252, 252, 0.08);
+            --border-color: rgba(255, 255, 255, 0.13);
+            --input-bg: rgba(255, 255, 255, 0.13);
+            --primary-red: rgb(255, 0, 0);
+            --primary-red-hover: rgba(255, 0, 0, 0.52);
+        }
+
+        
+        p, h1, h2, h3, ul, li{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .color-bg {
+            background-color: var(--bg-primary);
+        }
+        .mt-32 {
+            margin-top: 32px;
+        }
+        .my-28 {
+            margin-top: 28px;
+            margin-bottom: 28px;
+        }
+        .color-muted-foreground-bg {
+            background-color: var(--bg-muted-foreground);
+        }
+
+        .border-radius {
+            border-radius: var(--border-radius);
+        }
+
+        .custom-text {
+            color: var(--text-primary);
+        }
+
+        .text-color-grey {
+            color: var(--text-color);
+        }
+
+        .custom-text-muted {
+            color: var(--text-muted);
+        }
+
+        .color-primary {
+            color: var(--primary-red);
+        }
+
+        .color-primary-hover:hover {
+            color: var(--primary-red-hover);
+        }
+
+        .separator {
+            height: 1px;
+            background-color: var(--border-color);
+        }
+
+        .form-label {
+            color: rgb(209 213 220);
+        }
+
+        .btn-custom {
+            background-color: var(--primary-red);
+            border-color: var(--primary-red);
+            color: white;
+            transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        }
+
+        .btn-custom:hover {
+            background-color: var(--primary-red-hover);
+            border-color: var(--primary-red-hover);
+            color: white;
+        }
+
+        .logo-translate {
+            transform: translateX(-20%);
+        }
+
+        .form-input {
+            display: block;
+            width: 100%;
+            padding: .374rem .75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: white;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-clip: padding-box;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+        }
+
+        .gradient-overlay {
+            mask-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 255, 255));
+        }
+
+        .gradient-top {
+            background: conic-gradient(from 180deg at 99% 40% in lab, rgb(255, 255, 255) 18deg, rgb(156, 184, 221) 36deg, rgba(17, 17, 17, 0) 90deg, rgba(17, 17, 17, 0) 342deg, rgb(255, 255, 255) 360deg);
+        }
+
+        .gradient-bottom {
+            background: conic-gradient(from 0deg at 99% 60%, rgb(255, 255, 255) 0deg, rgba(17, 17, 17, 0) 18deg, rgba(17, 17, 17, 0) 270deg, rgb(156, 184, 221) 324deg, rgb(255, 255, 255) 342deg);
+        }
+
+        /* Additional styles for upgrade cards */
+        .upgrade-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            height: 100%;
+        }
+
+        .letter-spacing {
+            letter-spacing: -3.9px;
+        }
+
+        .sidebar-placeholder {
+            height: 80px;
+            background-color: var(--bg-muted-foreground);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .main-container {
+            margin-top: 120px;
+            margin-bottom: 120px;
+        }
+
+        @media (min-width: 768px) {
+            .main-container {
+                margin-top: 140px;
+                margin-bottom: 140px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .p-8 {
+                padding: 2rem !important; /* 32px desktop */
+            }
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            position: fixed;
+            width: max-content;
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            left: 50%;
+            top: 8px;
+            transform: translateX(-50%);
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 0.75rem 1rem;
+            z-index: 50;
+            transition: all 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .sidebar {
+                flex-direction: column;
+                justify-content: flex-start;
+                gap: 2rem;
+                left: 0.5rem;
+                top: 50%;
+                transform: translateY(-50%);
+                padding: 2rem 1rem;
+            }
+        }
+
+        .sidebar-item {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            padding: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            background-color: transparent;
+        }
+
+        @media (min-width: 768px) {
+            .sidebar-item {
+                padding: 18px;
+            }
+        }
+
+        .sidebar-item:hover {
+            background-color: var(--primary-red);
+            color: var(--bg-primary);
+            text-decoration: none;
+        }
+
+        .sidebar-item.active {
+            background-color: var(--primary-red);
+        }
+
+        .sidebar-icon {
+            width: 20px;
+            height: 20px;
+            stroke-width: 2.5;
+            color: var(--text-muted);
+            transition: color 0.2s ease;
+        }
+
+        .sidebar-item:hover .sidebar-icon {
+            color: var(--bg-primary);
+        }
+
+        .sidebar-item.active .sidebar-icon {
+            color: white;
+        }
+
+        .sidebar-placeholder {
+            height: 80px;
+            background-color: var(--bg-muted-foreground);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body class="color-bg">
+    <div class="container-fluid px-0" style="max-width: 83.333333%;">
+        <!-- Sidebar Placeholder -->
+        <aside class="sidebar">
+                <!-- Home -->
+                <a href="/" class="sidebar-item active" title="Home">
+                    <i class="sidebar-icon" data-lucide="home" width="25" height="25" stroke-width="2.5"></i>
+                </a>
+                
+                <!-- Features -->
+                <a href="/features" class="sidebar-item" title="Features">
+                    <i class="sidebar-icon" data-lucide="rocket" width="25" height="25" stroke-width="2.5"></i>
+                </a>
+                
+                <!-- Upgrade -->
+                <a href="/upgrade" class="sidebar-item" title="Upgrade">
+                    <i class="sidebar-icon" data-lucide="shopping-cart" width="25" height="25" stroke-width="2.5"></i>
+                </a>
+                
+                <!-- Support -->
+                <a href="/support" class="sidebar-item" title="Support">
+                    <i class="sidebar-icon" data-lucide="message-circle" width="25" height="25" stroke-width="2.5"></i>
+                </a>
+                
+                <!-- Account -->
+                <a href="/account" class="sidebar-item" title="Account">
+                    <i class="sidebar-icon" data-lucide="user" width="25" height="25" stroke-width="2.5"></i>
+                </a>
+        </aside>
+        <!-- Main Content -->
+        <main class="main-container">
+            <div class="container-fluid p-2 p-md-4">
+                <!-- Header Section -->
+                <div class="mb-4">
+                    <h1 class="display-4 fw-bold letter-spacing text-white tracking-tight d-flex align-items-center">
+                        <!-- Shopping Cart Icon -->
+                        <i data-lucide="shopping-cart" stroke-width="2" class="me-1" color="#ff0000" width="55" height="55"></i>
+                        Upgrade
+                    </h1>
+                    <p class="custom-text-muted">
+                        Looking to upgrade your membership? Choose between the following plans or contact us for a custom enterprise solution!
+                    </p>
+                </div>
+
+                <!-- Upgrade Plans Grid -->
+                <section class="row g-3 g-md-4 g-lg-4">
+                    <!-- LITE Plan -->
+                    <div class="col-12 col-lg-6 col-xl-4">
+                        <div class="card d-flex flex-column gap-4 upgrade-card p-4 p-8">
+                                <h3 class="display-6 fw-bolder color-primary">LITE</h3>
+                                <div>
+                                <ul class="d-flex flex-column gap-4">
+                                    <li class="text-color-grey flex align-items-center gap-2 opacity-75">
+                                        <i data-lucide="check" width="25" height="25"></i>
+                                        <span>1 simultaneous tests</span>
+                                    </li>
+                                    <li class="text-color-grey flex align-items-center gap-2 opacity-75">
+                                        <i data-lucide="check" width="25" height="25"></i>
+                                        <span>60 sec. Max test duration</span>
+                                    </li>
+                                    <li class="text-color-grey flex align-items-center gap-2 opacity-75">
+                                        <i data-lucide="x" width="25" height="25"></i>
+                                        <span>Api excluded</span>
+                                    </li>
+                                </ul>
+                                <div class="d-flex my-28">
+                                    <p class="p-3 border-radius color-bg text-white ">
+                                        Up to 40 Gb/s and over 100k rq/s
+                                    </p>
+                                </div>
+                                <div class="separator"></div>
+                                <div class="my-28 font-medium text-color-grey">
+                                    <span class="d-inline-block mr-4 fs-1 fw-semibold">
+                                        <span class="text-white">$20</span>.00
+                                    </span>
+                                    / 3 days
+                                </div>
+                                <button type="submit" class="btn-custom text-white w-100 p-2 py-3 fs-5 fw-semibold d-flex align-items-center justify-content-center gap-2 rounded border-0">
+                                    <i data-lucide="shopping-cart" width="20" height="20" stroke-width="3"></i>
+                                    Buy Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-xl-4">
+                        <div class="card d-flex flex-column gap-4 upgrade-card p-4 p-8">
+                                <h3 class="display-6 fw-bolder color-primary">STANDART</h3>
+                                <div>
+                                <ul class="d-flex flex-column gap-4">
+                                    <li class="text-color-grey flex align-items-center gap-2 opacity-75">
+                                        <i data-lucide="check" width="25" height="25"></i>
+                                        <span>2 simultaneous tests</span>
+                                    </li>
+                                    <li class="text-color-grey flex align-items-center gap-2 opacity-75">
+                                        <i data-lucide="check" width="25" height="25"></i>
+                                        <span>600 sec. Max test duration</span>
+                                    </li>
+                                    <li class="text-color-grey flex align-items-center gap-2 opacity-75">
+                                        <i data-lucide="x" width="25" height="25"></i>
+                                        <span>Api excluded</span>
+                                    </li>
+                                </ul>
+                                <div class="d-flex my-28">
+                                    <p class="p-3 border-radius color-bg text-white ">
+                                        Up to 80 Gb/s and over 200k rq/s
+                                    </p>
+                                </div>
+                                <div class="separator"></div>
+                                <div class="my-28 font-medium text-color-grey">
+                                    <span class="d-inline-block mr-4 fs-1 fw-semibold">
+                                        <span class="text-white">$45</span>.00
+                                    </span>
+                                    / 3 days
+                                </div>
+                                <button type="submit" class="btn-custom text-white w-100 p-2 py-3 fs-5 fw-semibold d-flex align-items-center justify-content-center gap-2 rounded border-0">
+                                    <i data-lucide="shopping-cart" width="20" height="20" stroke-width="3"></i>
+                                    Buy Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <!-- <script src="https://unpkg.com/lucide@latest"></script> -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
